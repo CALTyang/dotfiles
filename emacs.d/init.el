@@ -8,7 +8,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (web-mode hungry-delete aggressive-indent multi-term helm-projectile helm-themes helm-directory helm-ag ace-jump-helm-line solarized-theme powerline powerline-evil moe-theme evil ace-window neotree company vue-mode monokai-theme exec-path-from-shell helm smex nyan-mode popwin switch-window ace-jump-mode))))
+    (emmet-mode web-mode hungry-delete aggressive-indent multi-term helm-projectile helm-themes helm-directory helm-ag ace-jump-helm-line solarized-theme powerline powerline-evil moe-theme evil ace-window neotree company vue-mode monokai-theme exec-path-from-shell helm smex nyan-mode popwin switch-window ace-jump-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -148,4 +148,8 @@
   (setq web-mode-code-indent-offset 2)
 )
 (add-hook 'web-mode-hook  'my-web-mode-hook)
+
+;; Configure Emmet
+(require 'emmet-mode)
+(add-hook 'web-mode-hook  'emmet-mode)
 
