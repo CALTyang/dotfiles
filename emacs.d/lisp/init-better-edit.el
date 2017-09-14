@@ -1,5 +1,4 @@
-
-;; Dired open file in one buffer
+;; Configure Dired-Mode
 (require 'dired+)
 (add-hook 'dired-mode-hook
  (lambda ()
