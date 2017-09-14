@@ -11,16 +11,18 @@
 (global-hl-line-mode 1)
 (tool-bar-mode -1)
 (display-time-mode 1)
+(setq ring-bell-function 'ignore)
 (setq-default display-time-24hr-format t)
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
+(setq auto-save-default nil)
 (setq initial-scratch-message "hello world : )")
 (setq initial-frame-alist (quote ((fullscreen . maximized))))
 
 ;; Configure Theme
-;;(load-theme 'monokai t)
-(load-theme 'tango-dark t)
-(require 'moe-theme)
+(load-theme 'monokai t)
+;;(load-theme 'tango-dark t)
+;;(require 'moe-theme)
 ;;(moe-dark )
 
 
@@ -45,9 +47,9 @@
 
 ;; Configure Powerline
 (require 'powerline)
-;;(powerline-default-theme)
+(powerline-default-theme)
 ;;(powerline-center-evil-theme)
-(powerline-vim-theme)
+;;(powerline-vim-theme)
 (require 'powerline-evil)
 
 (provide 'init-ui)

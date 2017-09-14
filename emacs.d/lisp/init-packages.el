@@ -8,6 +8,8 @@
 (defvar my/packages '(
 		      ;; --- Auto-completion ---
 		      company
+          company-tern
+          company-web-html
 		      ;; --- Better Editor ---
 		      dired+
 		      evil-surround
