@@ -6,9 +6,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(evil-leader/leader "SPC")
  '(package-selected-packages
    (quote
-    (emmet-mode web-mode hungry-delete aggressive-indent multi-term helm-projectile helm-themes helm-directory helm-ag ace-jump-helm-line solarized-theme powerline powerline-evil moe-theme evil ace-window neotree company vue-mode monokai-theme exec-path-from-shell helm smex nyan-mode popwin switch-window ace-jump-mode))))
+    (dired+ evil-surround window-numbering evil-nerd-commenter evil-leader emmet-mode web-mode hungry-delete aggressive-indent multi-term helm-projectile helm-themes helm-directory helm-ag ace-jump-helm-line solarized-theme powerline powerline-evil moe-theme evil ace-window neotree company vue-mode monokai-theme exec-path-from-shell helm smex nyan-mode popwin switch-window ace-jump-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -16,38 +17,6 @@
  ;; If there is more than one, they won't work right.
  )
 
-;; Configure Appearance
-;;(load-theme 'monokai t)
-(load-theme 'tango-dark t)
-(require 'moe-theme)
-;;(moe-dark )
-
-(defalias 'yes-or-no-p 'y-or-n-p)
-(add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
-(delete-selection-mode t)
-(setq make-backup-files nil)
-(setq-default cursor-type 'bar)
-(setq inhibit-startup-screen t)
-(global-linum-mode 1)
-;;(global-hl-line-mode 1)
-(display-time-mode 1)
-(setq initial-scratch-message "hello world : )")
-(setq initial-frame-alist (quote ((fullscreen . maximized))))
-
-;; configure siwtch-window
-(require 'switch-window)
-(global-set-key (kbd "C-x o") 'switch-window)
-
-;; configure popwin
-(require 'popwin)
-(popwin-mode 1)
-
-;; configure nyan-mode
-(setq mode-line-format
-      (list
-       '(:eval (list (nyan-create)))
-      ))
-(nyan-mode t)
 
 ;; configure Ace-jump
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
@@ -81,10 +50,6 @@
 (setq helm-semantic-fuzzy-match t)
 
 
-;; Solve $PATH Problem
-(when (memq window-system '(mac ns x))
-  (exec-path-from-shell-initialize))
-
 ;; Configure Vue
 ;;(require 'vue-mode)
 
@@ -97,18 +62,43 @@
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
 
-;; Configure NEOtree
-(require 'neotree)
-(global-set-key [f8] 'neotree-toggle)
-;; Recent Files
-(require 'recentf)
-(recentf-mode 1)
-(setq recentf-max-menu-items 25)
-(global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
 ;; Configure Evil
 (require 'evil)
 (evil-mode 1)
+(require 'evil-surround)
+(global-evil-surround-mode 1)
+(global-evil-leader-mode)
+;; Customize Evil-leader shortcuts
+(evil-leader/set-key "e" 'find-file)
+(evil-leader/set-key
+  "ff" 'helm-find-files
+  "fr" 'helm-recentf
+  "fs" 'evil-save
+  "fq" 'kill-buffer-and-window
+  "bb" 'switch-to-buffer
+  "bk" 'kill-buffer-and-window
+  "0"  'select-window-0
+  "1"  'select-window-1
+  "2"  'select-window-2
+  "3"  'select-window-3
+  ":"  'counsel-M-x
+  "wM" 'delete-other-windows
+  "hs" (lambda () (interactive)(split-window-vertically) (other-window 1))
+  "vs" (lambda () (interactive)(split-window-horizontally) (other-window 1))
+  "//" 'evilnc-comment-or-uncomment-lines
+  "bl" 'helm-bookmarks
+  "sf" 'toggle-frame-fullscreen
+  "sm" 'toggle-frame-maximized
+  "mt" 'multi-term
+  )
+(evilnc-default-hotkeys)
+(window-numbering-mode 1)
+
+;; Configure Evil-Commenter
+;;(define-key evil-normal-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
+;;(define-key evil-visual-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
+
 
 ;; Configure Powerline
 (require 'powerline)
@@ -119,16 +109,12 @@
 
 ;; Configure Ace-Window
 ;;(global-set-key (kbd "C-x o") 'ace-window)
-(global-set-key (kbd "C-x C-o") 'ace-window)
+;;(global-set-key (kbd "C-x C-o") 'ace-window)
 
 ;; Configure Multi-Term
 (require 'multi-term)
 (setq multi-term-program "/bin/zsh")
 (setq system-uses-terminfo nil)
-
-;; Configure Hungry Delete
-(require 'hungry-delete)
-(global-hungry-delete-mode)
 
 ;; Configure Indent
 ;;(require 'aggressive-indent)
@@ -153,3 +139,12 @@
 (require 'emmet-mode)
 (add-hook 'web-mode-hook  'emmet-mode)
 
+(put 'erase-buffer 'disabled nil)
+
+
+;; Load Configuration Modules
+(add-to-list 'load-path "~/.emacs.d/lisp")
+
+(require 'init-ui)
+(require 'init-better-edit)
+(require 'init-packages)
