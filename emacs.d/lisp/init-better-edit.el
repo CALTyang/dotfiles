@@ -46,7 +46,6 @@
 ;; add company backends
 ;;(add-to-list 'company-backends 'company-tern)
 
-
 ;; -------------------------------------------------- 
 ;; Configure Evil
 ;; -------------------------------------------------- 
@@ -129,6 +128,17 @@
   (setq web-mode-code-indent-offset 2)
 )
 (add-hook 'web-mode-hook  'my-web-mode-hook)
+
+;; -------------------------------------------------- 
+;; Configure Magit
+;; -------------------------------------------------- 
+(require 'evil-magit)
+
+;; Configure Evil-Leader Shortcuts
+(evil-leader/set-key
+  "gi" 'magit-init
+  "gs" 'magit-status
+  )
 
 
 (provide 'init-better-edit)

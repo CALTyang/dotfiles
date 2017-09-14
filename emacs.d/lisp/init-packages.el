@@ -39,6 +39,8 @@
 		      web-mode
 		      vue-mode
 		      exec-path-from-shell
+          magit
+          evil-magit
 		      ;; --- Themes ---
 		      monokai-theme
 		      solarized-theme
