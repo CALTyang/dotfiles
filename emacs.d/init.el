@@ -1,6 +1,18 @@
+
+;; Load Configuration Modules
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
 (package-initialize)
-(setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-                         ("melpa" . "http://elpa.emacs-china.org/melpa/")))
+
+(add-to-list 'load-path "~/.emacs.d/lisp")
+
+(require 'init-packages)
+(require 'init-ui)
+(require 'init-better-edit)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -16,7 +28,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
 
 ;; configure Ace-jump
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
@@ -62,7 +73,6 @@
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
 
-
 ;; Configure Evil
 (require 'evil)
 (evil-mode 1)
@@ -99,14 +109,6 @@
 ;;(define-key evil-normal-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
 ;;(define-key evil-visual-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
 
-
-;; Configure Powerline
-(require 'powerline)
-;;(powerline-default-theme)
-;;(powerline-center-evil-theme)
-(powerline-vim-theme)
-(require 'powerline-evil)
-
 ;; Configure Ace-Window
 ;;(global-set-key (kbd "C-x o") 'ace-window)
 ;;(global-set-key (kbd "C-x C-o") 'ace-window)
@@ -142,9 +144,3 @@
 (put 'erase-buffer 'disabled nil)
 
 
-;; Load Configuration Modules
-(add-to-list 'load-path "~/.emacs.d/lisp")
-
-(require 'init-ui)
-(require 'init-better-edit)
-(require 'init-packages)

@@ -41,5 +41,11 @@
       ))
 (nyan-mode t)
 
+;; Configure Powerline
+(require 'powerline)
+;;(powerline-default-theme)
+;;(powerline-center-evil-theme)
+(powerline-vim-theme)
+(require 'powerline-evil)
 
 (provide 'init-ui)
