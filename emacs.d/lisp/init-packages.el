@@ -40,14 +40,13 @@
 		      vue-mode
 		      exec-path-from-shell
 		      ;; --- Themes ---
-		      nyan-mode
 		      monokai-theme
 		      solarized-theme
 		      helm-themes
+		      moe-theme
+		      nyan-mode
 		      powerline
 		      powerline-evil
-		      moe-theme
-		      ;; solarized-theme
 		      ) "Default packages")
 
 (setq package-selected-packages my/packages)
