@@ -13,6 +13,7 @@
 (display-time-mode 1)
 (setq-default display-time-24hr-format t)
 (scroll-bar-mode -1)
+(menu-bar-mode -1)
 (setq initial-scratch-message "hello world : )")
 (setq initial-frame-alist (quote ((fullscreen . maximized))))
 
