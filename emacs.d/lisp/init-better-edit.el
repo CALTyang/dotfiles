@@ -30,7 +30,14 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
 
+;; Configure Multi-Term
+(require 'multi-term)
+(setq multi-term-program "/bin/zsh")
+(setq system-uses-terminfo nil)
+
+;; -------------------------------------------------- 
 ;; Configure Company
+;; -------------------------------------------------- 
 (add-hook 'after-init-hook 'global-company-mode)
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "M-n") nil)

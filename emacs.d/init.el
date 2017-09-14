@@ -50,10 +50,6 @@
 ;;(global-set-key (kbd "C-x o") 'ace-window)
 ;;(global-set-key (kbd "C-x C-o") 'ace-window)
 
-;; Configure Multi-Term
-(require 'multi-term)
-(setq multi-term-program "/bin/zsh")
-(setq system-uses-terminfo nil)
 
 
 ;; Configure Emmet

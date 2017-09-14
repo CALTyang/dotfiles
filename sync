@@ -5,6 +5,7 @@ cp ~/.emacs.d/init.el ./emacs.d
 cp -r ~/.emacs.d/lisp ./emacs.d
 
 echo 'Start Git Operations'
+git status
 echo 'Enter Git Comment Message:'
 read cmtContent
 git add -A
