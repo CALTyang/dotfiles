@@ -8,36 +8,36 @@
 (defvar my/packages '(
 		      ;; --- Auto-completion ---
 		      company
-          company-tern
-          company-web-html
 		      ;; --- Better Editor ---
 		      dired+
 		      evil-surround
 		      window-numbering
-		      evil-nerd-commenter
-		      evil-leader
 		      hungry-delete
 		      aggressive-indent
-		      helm-projectile
-		      helm-directory
-		      helm-ag
 		      ace-jump-helm-line
-		      evil
 		      ace-window
 		      neotree
 		      company
-		      vue-mode
-		      helm
 		      smex
 		      popwin
 		      switch-window
 		      ace-jump-mode
+		      ;; --- Evil ---
+		      evil
+		      evil-leader
+		      evil-nerd-commenter
+		      ;; --- Helm ---
+		      helm
+		      helm-ag
+		      helm-directory
+		      helm-projectile
 		      ;; --- Major Mode ---
 		      multi-term
 		      js2-mode
 		      ;; --- Minor Mode ---
 		      emmet-mode
 		      web-mode
+		      vue-mode
 		      exec-path-from-shell
 		      ;; --- Themes ---
 		      nyan-mode

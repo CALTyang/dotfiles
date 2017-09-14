@@ -32,7 +32,10 @@
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
 ;; add company backends
-(add-to-list 'company-backends 'company-tern)
+;;(add-to-list 'company-backends 'company-tern)
 
+;; Configure Evil-Commenter
+(define-key evil-normal-state-map (kbd "C-/") 'evilnc-comment-or-uncomment-lines)
+(define-key evil-visual-state-map (kbd "C-/") 'evilnc-comment-or-uncomment-lines)
 
 (provide 'init-better-edit)

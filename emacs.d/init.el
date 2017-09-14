@@ -97,9 +97,6 @@
 (evilnc-default-hotkeys)
 (window-numbering-mode 1)
 
-;; Configure Evil-Commenter
-;;(define-key evil-normal-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
-;;(define-key evil-visual-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
 
 ;; Configure Ace-Window
 ;;(global-set-key (kbd "C-x o") 'ace-window)
