@@ -8,6 +8,9 @@
 (defvar my/packages '(
 		      ;; --- Auto-completion ---
 		      company
+          company-web
+          company-tern
+          tern
 		      ;; --- Better Editor ---
 		      dired+
 		      evil-surround
@@ -26,6 +29,7 @@
 		      evil
 		      evil-leader
 		      evil-nerd-commenter
+          evil-org
 		      ;; --- Helm ---
 		      helm
 		      helm-ag
@@ -34,6 +38,7 @@
 		      ;; --- Major Mode ---
 		      multi-term
 		      js2-mode
+          js2-refactor
 		      ;; --- Minor Mode ---
 		      emmet-mode
 		      web-mode

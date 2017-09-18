@@ -34,6 +34,10 @@
 (setq multi-term-program "/bin/zsh")
 (setq system-uses-terminfo nil)
 
+;; Configure Tern
+(add-hook 'js2-mode-hook 'tern-mode)
+(add-hook 'web-mode-hook 'tern-mode)
+
 ;; -------------------------------------------------- 
 ;; Configure Company
 ;; -------------------------------------------------- 
@@ -44,7 +48,7 @@
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
 ;; add company backends
-;;(add-to-list 'company-backends 'company-tern)
+
 
 ;; -------------------------------------------------- 
 ;; Configure Evil
@@ -120,7 +124,8 @@
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.vue?\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.js?\\'" . web-mode))
+;;(add-to-list 'auto-mode-alist '("\\.js?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js?\\'" . js2-mode))
 (defun my-web-mode-hook ()
   "Hooks for Web mode."
   (setq web-mode-markup-indent-offset 2)
@@ -130,8 +135,15 @@
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 
 ;; -------------------------------------------------- 
+;; Configure Js2-Mode
+;; -------------------------------------------------- 
+(require 'js2-refactor)
+(add-hook 'js2-mode-hook #'js2-refactor-mode)
+
+;; -------------------------------------------------- 
 ;; Configure Magit
 ;; -------------------------------------------------- 
+(require 'magit)
 (require 'evil-magit)
 
 ;; Configure Evil-Leader Shortcuts

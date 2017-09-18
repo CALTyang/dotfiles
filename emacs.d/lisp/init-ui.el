@@ -47,9 +47,12 @@
 
 ;; Configure Powerline
 (require 'powerline)
+(require 'powerline-evil)
+;; 5 built-in theme
 (powerline-default-theme)
+;;(powerline-center-theme)
 ;;(powerline-center-evil-theme)
 ;;(powerline-vim-theme)
-(require 'powerline-evil)
+;;(powerline-nano-theme)
 
 (provide 'init-ui)
