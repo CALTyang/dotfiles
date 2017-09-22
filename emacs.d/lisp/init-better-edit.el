@@ -77,6 +77,7 @@
   "sf" 'toggle-frame-fullscreen
   "sm" 'toggle-frame-maximized
   "mt" 'multi-term
+  "pp" 'helm-projectile
   )
 
 ;; Configure Evil-Surround
