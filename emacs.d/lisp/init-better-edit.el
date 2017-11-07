@@ -1,20 +1,3 @@
-;; Configure Dired-Mode
-(require 'dired+)
-(add-hook 'dired-mode-hook
- (lambda ()
-  (define-key dired-mode-map (kbd "C-<up>")
-    (lambda () (interactive) (find-alternate-file "..")))
-  ; was dired-up-directory
- ))
-;; add new file key => c to dired mode
-(define-key dired-mode-map "c" 'find-file)
-
-;; Open recentf mode
-(require 'recentf)
-(recentf-mode 1)
-(setq recentf-max-menu-items 25)
-(global-set-key "\C-x\ \C-r" 'helm-recentf)
-
 ;; Configure hungry delete
 (require 'hungry-delete)
 (global-hungry-delete-mode)
@@ -60,10 +43,12 @@
 (evil-leader/set-key
   "ff" 'helm-find-files
   "fr" 'helm-recentf
+  "fc" 'helm-ag
   "fs" 'evil-save
   "fq" 'kill-buffer-and-window
-  "bb" 'switch-to-buffer
-  "bk" 'kill-buffer-and-window
+  "bb" 'helm-buffers-list
+  "bk" 'kill-buffer
+  "bw" 'kill-buffer-and-window
   "0"  'select-window-0
   "1"  'select-window-1
   "2"  'select-window-2
@@ -155,3 +140,7 @@
 
 
 (provide 'init-better-edit)
+
+;; Configure EditorConfig
+(require 'editorconfig)
+(editorconfig-mode 1)

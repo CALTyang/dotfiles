@@ -1,6 +1,4 @@
 (package-initialize)
-(setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-                         ("melpa" . "http://elpa.emacs-china.org/melpa/")))
 
 (require 'cl)
 
@@ -25,6 +23,7 @@
 		      popwin
 		      switch-window
 		      ace-jump-mode
+          editorconfig
 		      ;; --- Evil ---
 		      evil
 		      evil-leader
